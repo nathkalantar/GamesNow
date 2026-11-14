@@ -9,4 +9,10 @@
 
 [node name="Arena" parent="." unique_id=617829016 instance=ExtResource("1_gkmpl")]
 
-[node name="SpinningTop" parent="." unique_id=1354774123 instance=ExtResource("2_3mvhd")]
+[node name="SpinningTop1" parent="." unique_id=1354774123 instance=ExtResource("2_3mvhd")]
+position = Vector2(-175, -100)
+player = 1
+
+[node name="SpinningTop2" parent="." unique_id=836728903 instance=ExtResource("2_3mvhd")]
+position = Vector2(175, 100)
+player = 2
