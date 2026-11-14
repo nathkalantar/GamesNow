@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bawavbtkavkq3"]
+
+[ext_resource type="PackedScene" uid="uid://cy21ui1nosq3a" path="res://prefabs/Arena.tscn" id="1_gkmpl"]
+[ext_resource type="PackedScene" uid="uid://do5atpdrokkjo" path="res://prefabs/SpinningTop.tscn" id="2_3mvhd"]
+
+[node name="BattleScene" type="Node2D" unique_id=1681570013]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1965974622]
+
+[node name="Arena" parent="." unique_id=617829016 instance=ExtResource("1_gkmpl")]
+
+[node name="SpinningTop" parent="." unique_id=1354774123 instance=ExtResource("2_3mvhd")]

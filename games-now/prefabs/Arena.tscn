@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cy21ui1nosq3a"]
+
+[ext_resource type="Texture2D" uid="uid://w7et6k2i1kmo" path="res://images/arena.png" id="1_wt3hv"]
+
+[node name="Arena" type="StaticBody2D" unique_id=617829016]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1807592043]
+build_mode = 1
+polygon = PackedVector2Array(-600, 0, -450, -175, -200, -300, 200, -300, 450, -175, 600, 0, 450, 175, 200, 300, -200, 300, -450, 175)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=296878813]
+position = Vector2(0.9999792, 18.500004)
+scale = Vector2(3.5048358, 1.7826087)
+texture = ExtResource("1_wt3hv")

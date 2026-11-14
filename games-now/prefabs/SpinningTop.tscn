@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://do5atpdrokkjo"]
+
+[ext_resource type="Script" uid="uid://dvcgy6a32yuvp" path="res://scripts/spinning_top.gd" id="1_0htg1"]
+[ext_resource type="Texture2D" uid="uid://cdq8nny78pq6y" path="res://images/spinningtop.png" id="1_4s1rt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dirb6"]
+radius = 50.0
+
+[node name="SpinningTop" type="RigidBody2D" unique_id=1354774123 node_paths=PackedStringArray("spin_sprites")]
+gravity_scale = 0.0
+script = ExtResource("1_0htg1")
+spin_sprites = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1479366269]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=519575180]
+position = Vector2(0, 5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4s1rt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1508492015]
+shape = SubResource("CircleShape2D_dirb6")
