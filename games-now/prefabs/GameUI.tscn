@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://71i4fbs0kf8h" path="res://images/Assets UI/DashBar/P2/Background DashBar P2.png" id="11_ng23x"]
 [ext_resource type="Texture2D" uid="uid://2qhqipkf1ff1" path="res://images/Assets UI/DashBar/P2/Fill DashBar P2.png" id="12_bksmp"]
 [ext_resource type="Texture2D" uid="uid://c1y10im7lmgqf" path="res://images/Assets UI/DashBar/P2/Frame DashBar P2.png" id="13_6fpl0"]
+[ext_resource type="Texture2D" uid="uid://dbqtgw8ek33q1" path="res://images/Assets UI/Menus/SelectedButton.png" id="16_y84d0"]
+[ext_resource type="Texture2D" uid="uid://dk4drfpuyuxhd" path="res://images/Assets UI/Menus/HoverButton.png" id="17_bv1k0"]
+[ext_resource type="Script" uid="uid://bvtitjtj7gk3n" path="res://scripts/restart.gd" id="17_id2kb"]
+[ext_resource type="AudioStream" uid="uid://b8s66padx2kbd" path="res://audio/Button Clicking .mp3" id="18_bv1k0"]
+[ext_resource type="Script" uid="uid://bk01nmqcibaax" path="res://scripts/quit.gd" id="18_y84d0"]
 
 [node name="GameUI" type="Control" unique_id=2040306235 node_paths=PackedStringArray("progress_bar_1", "progress_bar_2", "rich_text_label_1", "rich_text_label_2", "dash_bar_1", "dash_bar_2", "dash_number_1", "dash_number_2")]
 z_index = 10
@@ -285,3 +290,89 @@ offset_top = -169.99998
 offset_right = 3212.9998
 offset_bottom = 758.0
 texture = ExtResource("13_6fpl0")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=562346428 node_paths=PackedStringArray("audio_stream_player")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -74.0
+offset_right = 4681.0
+offset_bottom = 1238.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.055, 0.055)
+texture_normal = ExtResource("17_bv1k0")
+texture_hover = ExtResource("16_y84d0")
+script = ExtResource("17_id2kb")
+audio_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=152293431]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -898.9088
+offset_top = -365.09125
+offset_right = -695.9088
+offset_bottom = -281.09125
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+theme_override_fonts/font = ExtResource("2_ng23x")
+theme_override_font_sizes/font_size = 54
+text = "Restart"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton" unique_id=1254347577]
+stream = ExtResource("18_bv1k0")
+volume_db = -10.0
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=243289233 node_paths=PackedStringArray("audio_stream_player")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 376.0
+offset_top = -59.0
+offset_right = 5192.0
+offset_bottom = 1253.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.04, 0.04)
+texture_normal = ExtResource("17_bv1k0")
+texture_hover = ExtResource("16_y84d0")
+script = ExtResource("18_y84d0")
+audio_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="Label" type="Label" parent="TextureButton2" unique_id=1767784617]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1083.0001
+offset_top = -381.00006
+offset_right = -880.0001
+offset_bottom = -297.00006
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+theme_override_fonts/font = ExtResource("2_ng23x")
+theme_override_font_sizes/font_size = 54
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton2" unique_id=132214531]
+stream = ExtResource("18_bv1k0")
+volume_db = -10.0
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqf4s4a2sfq6j" path="res://images/SpinSpins/P1/Full SpinSpin P1.png" id="4_ftvu5"]
 [ext_resource type="Texture2D" uid="uid://b5jwulpji10y4" path="res://images/SpinSpins/P2/Full Spin Spin P2.png" id="5_0yex5"]
 [ext_resource type="Texture2D" uid="uid://d0t3a8dldgkik" path="res://images/SpinSpins/P2/Glow P2.png" id="5_bsu3s"]
+[ext_resource type="AudioStream" uid="uid://jltsspjitonw" path="res://audio/BG Music Battle .mp3" id="7_bsu3s"]
 
 [node name="BattleScene" type="Node2D" unique_id=1681570013]
 
@@ -44,6 +45,12 @@ texture = ExtResource("5_bsu3s")
 position = Vector2(0, 0)
 scale = Vector2(0.038, 0.038)
 texture = ExtResource("5_0yex5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=604713298]
+stream = ExtResource("7_bsu3s")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true
 
 [editable path="Arena"]
 [editable path="SpinningTop1"]

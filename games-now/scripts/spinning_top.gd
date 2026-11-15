@@ -11,6 +11,10 @@ extends RigidBody2D
 @export var timer: Timer
 @export var dashChargeRate: int = 25
 @export var glow: Sprite2D
+@export var magic_clash: AudioStreamPlayer
+@export var spin_clash: AudioStreamPlayer
+@export var wall_impact: AudioStreamPlayer
+@export var lose: AudioStreamPlayer
 
 var maxRpm: float
 var timerRpm: float = 0.0
@@ -19,6 +23,7 @@ var dashMeter: int = 0
 var timerDash: float = 0.0
 var baseAttackValue: int = 0
 var dashing: bool = false
+var died: bool = false
 
 func _ready() -> void:
 	maxRpm = rpm
@@ -54,6 +59,7 @@ func _process(_delta: float) -> void:
 				if Input.is_action_just_pressed("dash1") && dashMeter > 25:
 					_dashAttack(dashMeter)
 					dashing = true
+					magic_clash.play()
 					glow.show()
 					dashMeter = 0
 					_update_dash_ui()
@@ -68,6 +74,7 @@ func _process(_delta: float) -> void:
 				if Input.is_action_just_pressed("dash2") && dashMeter > 25:
 					_dashAttack(dashMeter)
 					dashing = true
+					magic_clash.play()
 					glow.show()
 					dashMeter = 0
 					_update_dash_ui()
@@ -80,6 +87,9 @@ func _process(_delta: float) -> void:
 	
 		force = direction.normalized() * forceValue
 		apply_central_force(force)
+	elif (rpm <= 0 && !died):
+		died = true
+		lose.play()
 
 func _clash(atkDmg: int) -> void:
 	if !dashing:
@@ -92,9 +102,11 @@ func _clash(atkDmg: int) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("spinspin") and body.has_method("_clash"):
+		wall_impact.play()
 		body.call("_clash", attack)
 	
 	if body.is_in_group("arena"):
+		spin_clash.play()
 		_clash(150)
 
 func _update_rpm_ui():
