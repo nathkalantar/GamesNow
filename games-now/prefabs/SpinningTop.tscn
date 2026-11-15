@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvcgy6a32yuvp" path="res://scripts/spinning_top.gd" id="1_0htg1"]
 [ext_resource type="Texture2D" uid="uid://cdq8nny78pq6y" path="res://images/spinningtop.png" id="1_4s1rt"]
+[ext_resource type="Texture2D" uid="uid://dhccj70wmojcq" path="res://images/SpinSpins/P1/Glow P1.png" id="2_kcpte"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gkmpl"]
 friction = 0.0
@@ -10,11 +11,23 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_dirb6"]
 radius = 50.0
 
-[node name="SpinningTop" type="RigidBody2D" unique_id=1354774123 node_paths=PackedStringArray("spin_sprites")]
+[node name="SpinningTop" type="RigidBody2D" unique_id=1354774123 node_paths=PackedStringArray("spin_sprites", "timer", "glow") groups=["spinspin"]]
+z_index = 1
 physics_material_override = SubResource("PhysicsMaterial_gkmpl")
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_0htg1")
 spin_sprites = NodePath("Node2D")
+attack = 200
+timer = NodePath("Timer")
+glow = NodePath("Glow")
+
+[node name="Glow" type="Sprite2D" parent="." unique_id=1020654933]
+visible = false
+position = Vector2(0, 5)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_kcpte")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1479366269]
 
@@ -25,3 +38,10 @@ texture = ExtResource("1_4s1rt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1508492015]
 shape = SubResource("CircleShape2D_dirb6")
+
+[node name="Timer" type="Timer" parent="." unique_id=157827253]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

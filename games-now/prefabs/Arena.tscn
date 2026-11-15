@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://cy21ui1nosq3a"]
 
 [ext_resource type="Texture2D" uid="uid://w7et6k2i1kmo" path="res://images/arena.png" id="1_wt3hv"]
+[ext_resource type="Texture2D" uid="uid://b5gawk5jrmogu" path="res://images/Assets UI/ARENA (1).png" id="2_10mcc"]
 
-[node name="Arena" type="StaticBody2D" unique_id=617829016]
+[node name="Arena" type="StaticBody2D" unique_id=617829016 groups=["arena"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1807592043]
 build_mode = 1
-polygon = PackedVector2Array(-600, 0, -450, -175, -200, -300, 200, -300, 450, -175, 600, 0, 450, 175, 200, 300, -200, 300, -450, 175)
+polygon = PackedVector2Array(-600, 0, -500, -225, -200, -300, 200, -300, 500, -225, 600, 0, 500, 225, 200, 300, -200, 300, -500, 225)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=296878813]
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1052032271]
+visible = false
 position = Vector2(0.9999792, 18.500004)
 scale = Vector2(3.5048358, 1.7826087)
 texture = ExtResource("1_wt3hv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1513462803]
+position = Vector2(0.9999792, 18.500004)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_10mcc")

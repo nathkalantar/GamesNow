@@ -1,0 +1,287 @@
+[gd_scene format=3 uid="uid://cf61ybnh0dccq"]
+
+[ext_resource type="Script" uid="uid://neeyckun3xos" path="res://scripts/game_ui.gd" id="1_rv6as"]
+[ext_resource type="FontFile" uid="uid://dsebo5xwm4cjh" path="res://fonts/Asimovian-Regular.ttf" id="2_ng23x"]
+[ext_resource type="Texture2D" uid="uid://d1t6b88sph4x6" path="res://images/Assets UI/Stamina Bar/P1/Empty Stamina P1.png" id="2_ym8tq"]
+[ext_resource type="Texture2D" uid="uid://jd3qguwgasjs" path="res://images/Assets UI/Stamina Bar/P1/Filled Stamina P1.png" id="3_tk3ai"]
+[ext_resource type="Texture2D" uid="uid://3u1dsx5yjt7b" path="res://images/Assets UI/Stamina Bar/P1/Frame Stamina P1.png" id="4_vfvrb"]
+[ext_resource type="Texture2D" uid="uid://bnjutj5o0hkwr" path="res://images/Assets UI/Stamina Bar/P2/Empty Stamina P2.png" id="5_0xk8l"]
+[ext_resource type="Texture2D" uid="uid://kwfev8u7klju" path="res://images/Assets UI/Stamina Bar/P2/Filled Stamina P2.png" id="6_3f1ff"]
+[ext_resource type="Texture2D" uid="uid://5d3ahwjrgdqy" path="res://images/Assets UI/Stamina Bar/P2/Frame Stamina P2.png" id="7_vrvd1"]
+[ext_resource type="Texture2D" uid="uid://bdui84ysbn6mh" path="res://images/Assets UI/DashBar/P1/Background DashBar P1.png" id="8_vfvrb"]
+[ext_resource type="Texture2D" uid="uid://dswtaqyveq8l2" path="res://images/Assets UI/DashBar/P1/Fill DashBar P1.png" id="9_0xk8l"]
+[ext_resource type="Texture2D" uid="uid://57g3u0o8n7x6" path="res://images/Assets UI/DashBar/P1/Frame Dashbar P1.png" id="10_mfjyj"]
+[ext_resource type="Texture2D" uid="uid://71i4fbs0kf8h" path="res://images/Assets UI/DashBar/P2/Background DashBar P2.png" id="11_ng23x"]
+[ext_resource type="Texture2D" uid="uid://2qhqipkf1ff1" path="res://images/Assets UI/DashBar/P2/Fill DashBar P2.png" id="12_bksmp"]
+[ext_resource type="Texture2D" uid="uid://c1y10im7lmgqf" path="res://images/Assets UI/DashBar/P2/Frame DashBar P2.png" id="13_6fpl0"]
+
+[node name="GameUI" type="Control" unique_id=2040306235 node_paths=PackedStringArray("progress_bar_1", "progress_bar_2", "rich_text_label_1", "rich_text_label_2", "dash_bar_1", "dash_bar_2", "dash_number_1", "dash_number_2")]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_rv6as")
+progress_bar_1 = NodePath("TextureProgressBar1")
+progress_bar_2 = NodePath("TextureProgressBar2")
+rich_text_label_1 = NodePath("RichTextLabel1")
+rich_text_label_2 = NodePath("RichTextLabel2")
+dash_bar_1 = NodePath("DashTextureBar1")
+dash_bar_2 = NodePath("DashTextureBar2")
+dash_number_1 = NodePath("DashNumber1")
+dash_number_2 = NodePath("DashNumber2")
+metadata/_edit_vertical_guides_ = [22.0]
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="." unique_id=2022943772]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 144.71
+offset_top = -538.0
+offset_right = 344.70953
+offset_bottom = -463.0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_ng23x")
+theme_override_font_sizes/normal_font_size = 48
+text = "00000"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=724974323]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -339.59003
+offset_top = -538.0
+offset_right = -139.59082
+offset_bottom = -463.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_ng23x")
+theme_override_font_sizes/normal_font_size = 48
+text = "00000"
+horizontal_alignment = 2
+
+[node name="ProgressBar1" type="ProgressBar" parent="." unique_id=1809567584]
+visible = false
+layout_mode = 1
+offset_left = 100.0
+offset_top = 60.0
+offset_right = 500.0
+offset_bottom = 110.000015
+max_value = 10000.0
+step = 1.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="." unique_id=995559010]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_top = 60.0
+offset_right = -100.0
+offset_bottom = 110.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(1, 0)
+max_value = 10000.0
+step = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="DashNumber1" type="RichTextLabel" parent="." unique_id=299913480]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = 176.0
+offset_right = 125.0
+offset_bottom = 250.9992
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_ng23x")
+theme_override_font_sizes/normal_font_size = 56
+text = "1"
+horizontal_alignment = 2
+
+[node name="DashNumber2" type="RichTextLabel" parent="." unique_id=176940728]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 176.0
+offset_right = -25.0
+offset_bottom = 251.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_ng23x")
+theme_override_font_sizes/normal_font_size = 56
+text = "1"
+
+[node name="DashBar1" type="ProgressBar" parent="." unique_id=2013518790]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = -98.0
+offset_right = 450.0
+offset_bottom = -73.0
+grow_vertical = 0
+step = 1.0
+show_percentage = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="DashBar1" unique_id=104102380]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -35.105
+offset_right = 151.0
+offset_bottom = 29.895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "|          |          |"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DashBar2" type="ProgressBar" parent="." unique_id=1661690568]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -98.0
+offset_right = -150.0
+offset_bottom = -73.0
+grow_horizontal = 0
+grow_vertical = 0
+step = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="DashBar2" unique_id=1871441753]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -35.105
+offset_right = 151.0
+offset_bottom = 29.895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "|          |          |"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar1" type="TextureProgressBar" parent="." unique_id=957153117]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 65.0
+offset_right = 5741.0
+offset_bottom = 634.0
+scale = Vector2(0.07, 0.07)
+max_value = 10000.0
+texture_under = ExtResource("2_ym8tq")
+texture_progress = ExtResource("3_tk3ai")
+
+[node name="TextureRect" type="TextureRect" parent="TextureProgressBar1" unique_id=1594746578]
+layout_mode = 0
+offset_left = -1500.0
+offset_top = -600.0
+offset_right = 5669.0
+offset_bottom = 1052.0
+texture = ExtResource("4_vfvrb")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="." unique_id=488641253]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -537.0
+offset_top = 65.0
+offset_right = 5068.0
+offset_bottom = 634.0
+grow_horizontal = 0
+scale = Vector2(0.07, 0.07)
+max_value = 10000.0
+fill_mode = 1
+texture_under = ExtResource("5_0xk8l")
+texture_progress = ExtResource("6_3f1ff")
+
+[node name="TextureRect" type="TextureRect" parent="TextureProgressBar2" unique_id=277621622]
+layout_mode = 0
+offset_left = -75.0
+offset_top = -600.0
+offset_right = 7094.0
+offset_bottom = 1052.0
+texture = ExtResource("7_vrvd1")
+
+[node name="DashTextureBar1" type="TextureProgressBar" parent="." unique_id=1826227478]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 149.0
+offset_top = -114.0
+offset_right = 3257.0
+offset_bottom = 520.0
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+texture_under = ExtResource("8_vfvrb")
+texture_progress = ExtResource("9_0xk8l")
+texture_progress_offset = Vector2(-35, -35)
+
+[node name="TextureRect" type="TextureRect" parent="DashTextureBar1" unique_id=1524258250]
+layout_mode = 0
+offset_left = -170.00014
+offset_top = -169.99998
+offset_right = 3212.9998
+offset_bottom = 758.0
+texture = ExtResource("10_mfjyj")
+
+[node name="DashTextureBar2" type="TextureProgressBar" parent="." unique_id=1224461330]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 701.0
+offset_top = -114.0
+offset_right = 3809.0
+offset_bottom = 520.0
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+fill_mode = 1
+texture_under = ExtResource("11_ng23x")
+texture_progress = ExtResource("12_bksmp")
+texture_progress_offset = Vector2(-35, -35)
+
+[node name="TextureRect" type="TextureRect" parent="DashTextureBar2" unique_id=1090549707]
+layout_mode = 0
+offset_left = -170.00014
+offset_top = -169.99998
+offset_right = 3212.9998
+offset_bottom = 758.0
+texture = ExtResource("13_6fpl0")

@@ -2,17 +2,49 @@
 
 [ext_resource type="PackedScene" uid="uid://cy21ui1nosq3a" path="res://prefabs/Arena.tscn" id="1_gkmpl"]
 [ext_resource type="PackedScene" uid="uid://do5atpdrokkjo" path="res://prefabs/SpinningTop.tscn" id="2_3mvhd"]
+[ext_resource type="PackedScene" uid="uid://cf61ybnh0dccq" path="res://prefabs/GameUI.tscn" id="3_3mvhd"]
+[ext_resource type="Texture2D" uid="uid://dqf4s4a2sfq6j" path="res://images/SpinSpins/P1/Full SpinSpin P1.png" id="4_ftvu5"]
+[ext_resource type="Texture2D" uid="uid://b5jwulpji10y4" path="res://images/SpinSpins/P2/Full Spin Spin P2.png" id="5_0yex5"]
+[ext_resource type="Texture2D" uid="uid://d0t3a8dldgkik" path="res://images/SpinSpins/P2/Glow P2.png" id="5_bsu3s"]
 
 [node name="BattleScene" type="Node2D" unique_id=1681570013]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1965974622]
 
+[node name="GameUI" parent="." unique_id=2040306235 instance=ExtResource("3_3mvhd")]
+custom_minimum_size = Vector2(1152, 648)
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
 [node name="Arena" parent="." unique_id=617829016 instance=ExtResource("1_gkmpl")]
+
+[node name="Sprite2D3" parent="Arena" index="2" unique_id=1513462803]
+position = Vector2(0.4999447, 2.5000157)
+scale = Vector2(0.9675, 0.9792593)
 
 [node name="SpinningTop1" parent="." unique_id=1354774123 instance=ExtResource("2_3mvhd")]
 position = Vector2(-175, -100)
 player = 1
 
+[node name="Sprite2D" parent="SpinningTop1/Node2D" parent_id_path=PackedInt32Array(1354774123, 1479366269) index="0" unique_id=519575180]
+position = Vector2(0, 0)
+scale = Vector2(0.041, 0.041)
+texture = ExtResource("4_ftvu5")
+
 [node name="SpinningTop2" parent="." unique_id=836728903 instance=ExtResource("2_3mvhd")]
 position = Vector2(175, 100)
 player = 2
+
+[node name="Glow" parent="SpinningTop2" index="0" unique_id=1020654933]
+texture = ExtResource("5_bsu3s")
+
+[node name="Sprite2D" parent="SpinningTop2/Node2D" parent_id_path=PackedInt32Array(836728903, 1479366269) index="0" unique_id=519575180]
+position = Vector2(0, 0)
+scale = Vector2(0.038, 0.038)
+texture = ExtResource("5_0yex5")
+
+[editable path="Arena"]
+[editable path="SpinningTop1"]
+[editable path="SpinningTop2"]
